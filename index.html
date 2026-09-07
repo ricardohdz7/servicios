@@ -311,6 +311,24 @@
   .card-actions .btn-quote{ background: var(--cat-color); color: #05070d; }
   .card-actions .btn-quote:hover{ filter: brightness(1.08); transform: translateY(-1px); }
 
+  /* ============ MATRIZ ANTES / DESPUÉS ============ */
+  .matrix-scroll{ overflow-x: auto; border: 1px solid var(--border); border-radius: var(--radius-m); }
+  table.matrix-table{ width: 100%; border-collapse: collapse; min-width: 760px; }
+  table.matrix-table th{
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--text-faint); text-align: left; padding: 14px 20px; background: var(--surface-solid);
+    border-bottom: 1px solid var(--border-strong); white-space: nowrap;
+  }
+  table.matrix-table td{
+    padding: 16px 20px; border-bottom: 1px solid var(--border); font-size: 14px; line-height: 1.55; vertical-align: top;
+  }
+  table.matrix-table tr:last-child td{ border-bottom: none; }
+  table.matrix-table td.col-area{ color: var(--text); font-weight: 600; white-space: nowrap; }
+  table.matrix-table td.col-antes{ color: var(--text-faint); }
+  table.matrix-table td.col-antes::before{ content: "— "; }
+  table.matrix-table td.col-despues{ color: var(--text-muted); }
+  table.matrix-table td.col-impacto{ color: var(--bi-soft); font-size: 13px; }
+
   /* ============ CASOS DE ÉXITO ============ */
   .cases-grid{
     display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
@@ -477,6 +495,7 @@
     </a>
     <nav class="nav-links" aria-label="Navegación principal">
       <a href="#servicios">Servicios</a>
+      <a href="#transformacion">Impacto</a>
       <a href="#casos">Casos de éxito</a>
       <a href="#cotizar">Cotizar</a>
     </nav>
@@ -536,6 +555,25 @@
       </div>
 
       <div class="service-grid" id="serviceGrid"></div>
+    </div>
+  </section>
+
+  <!-- ============ MATRIZ ANTES / DESPUÉS ============ -->
+  <section id="transformacion">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow">Impacto operativo</span>
+        <h2>De lo manual a lo automatizado</h2>
+        <p>Comparativa real de procesos operativos antes y después de digitalizarlos — la misma transformación que aplicamos a cada servicio del catálogo.</p>
+      </div>
+      <div class="matrix-scroll">
+        <table class="matrix-table" id="matrixTable">
+          <thead>
+            <tr><th>Área operativa</th><th>Antes</th><th>Después</th><th>Impacto</th></tr>
+          </thead>
+          <tbody id="matrixBody"></tbody>
+        </table>
+      </div>
     </div>
   </section>
 
@@ -717,7 +755,8 @@
     activos: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="4" width="18" height="12" rx="1.6"/><path d="M8 20h8M12 16v4" stroke-linecap="round"/></svg>',
     limpieza: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><ellipse cx="12" cy="6" rx="7" ry="2.6"/><path d="M5 6v12c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6V6" /><path d="M5 12c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6" /></svg>',
     correo: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1.8"/><path d="m3.5 6 8.5 6.5L20.5 6" stroke-linecap="round" stroke-linejoin="round"/></svg>',
-    capacitacion: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M2 8.5 12 4l10 4.5-10 4.5-10-4.5Z" stroke-linejoin="round"/><path d="M6 10.7v5c0 1.4 2.7 2.6 6 2.6s6-1.2 6-2.6v-5" /></svg>'
+    capacitacion: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M2 8.5 12 4l10 4.5-10 4.5-10-4.5Z" stroke-linejoin="round"/><path d="M6 10.7v5c0 1.4 2.7 2.6 6 2.6s6-1.2 6-2.6v-5" /></svg>',
+    webapp: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="4.5" width="18" height="15" rx="1.8"/><path d="M3 8.5h18" stroke-linecap="round"/><circle cx="6.3" cy="6.5" r=".6" fill="currentColor" stroke="none"/><circle cx="8.3" cy="6.5" r=".6" fill="currentColor" stroke="none"/></svg>'
   };
 
   var CATS = {
@@ -867,15 +906,43 @@
         "Exámenes interactivos y evaluación continua",
         "Emisión de certificados digitales verificables"
       ]
+    },
+    {
+      id: "webapps",
+      cat: "ops",
+      icon: ICONS.webapp,
+      title: "Desarrollo de portales web a la medida",
+      desc: "Aplicaciones web propias, instalables y adaptadas exactamente a tu operación — no una plantilla genérica.",
+      cardPoints: [
+        "Interfaces en React + TypeScript, modo oscuro y claro",
+        "Backend escalable en Node.js / Express",
+        "Instalable como app (PWA) e integrada a Microsoft 365"
+      ],
+      modalPoints: [
+        "Interfaces en React + TypeScript con diseño premium en modo oscuro y claro",
+        "Backend escalable en Node.js / Express",
+        "Aplicación instalable (PWA) sin pasar por una tienda de aplicaciones",
+        "Integración nativa con Microsoft 365 (Graph API, Outlook, OneDrive) y con Odoo vía API"
+      ]
     }
   ];
 
+  var MATRIX = [
+    { area: "Soporte IT & Helpdesk", antes: "Reportes por chats informales, sin seguimiento de SLA, evidencia perdida.", despues: "Alertas en tiempo real por Telegram/WhatsApp, resolución en 1 clic con evidencia fotográfica en Odoo.", impacto: "Tiempo de respuesta mucho menor, 100% de tickets auditables" },
+    { area: "Control de activos TI", antes: "Formularios en papel, firma física, trazabilidad perdida en bajas de personal.", despues: "Expedientes digitales con correlativo automático, firma digital en pantalla y código QR.", impacto: "Proceso prácticamente libre de papel" },
+    { area: "Compras & facturación", antes: "Lectura y digitación manual de facturas, campo por campo.", despues: "OCR local de facturas con creación automática de la orden de compra en Odoo.", impacto: "Registro de compras mucho más rápido, sin costo de APIs externas" },
+    { area: "Mantenimientos & visitas técnicas", antes: "Checklists físicos, consolidación manual en Excel días después.", despues: "Formulario web móvil con actualización instantánea y reporte directo a Power BI.", impacto: "Visibilidad en tiempo real, sin reportes diferidos" },
+    { area: "Calidad de datos & contactos", antes: "Contactos duplicados, teléfonos y datos fiscales mal formateados.", despues: "Motor de validación automática y fusión inteligente de duplicados.", impacto: "Base de datos limpia, sin perder historial" },
+    { area: "Reportes ejecutivos & BI", antes: "Copiar y pegar manual de tablas a Excel, datos desactualizados.", despues: "APIs conectadas directo a Power BI, con datos en tiempo real.", impacto: "Decisiones basadas en datos frescos, no en reportes de días atrás" },
+    { area: "Bandeja de entrada (Outlook)", antes: "Correos operativos mezclados, tareas creadas manualmente desde el correo.", despues: "Clasificación automática por carpetas y conversión de correos en tareas.", impacto: "Bandeja organizada sin intervención manual" }
+  ];
+
   var CASES = [
-    { tag: "Operaciones", title: "Bitácora IT", desc: "Registro centralizado de incidentes y actividades técnicas del equipo de soporte, con trazabilidad completa." },
-    { tag: "Atención", title: "Helpdesk por WhatsApp", desc: "Canal de soporte técnico directo desde WhatsApp, con triaje automático y escalamiento por severidad." },
-    { tag: "Activos", title: "Control de equipos con firma digital", desc: "Entrega y devolución de hardware con firma digital, evidencia fotográfica y expediente por colaborador." },
-    { tag: "Analytics", title: "Reportes en Power BI", desc: "Tableros ejecutivos conectados en vivo a Odoo, con KPIs de mantenimiento, inventario e incidencias." },
-    { tag: "Documentación", title: "Actas CM-EXP", desc: "Generación automática de actas y expedientes digitales con código QR de verificación." }
+    { tag: "Plataforma interna de TI", title: "Plataforma integral de gestión de TI", desc: "Plataforma propia para un departamento de TI: bitácora sincronizada con Outlook, inventario con firma digital, compras con OCR de facturas y soporte con evidencia fotográfica — con bots de Telegram y WhatsApp, integrada a Microsoft 365 y Odoo." },
+    { tag: "Multi-sucursal", title: "Control de visitas técnicas preventivas", desc: "Semáforo de cumplimiento por ciclo de 90 días, checklist operativo, expediente de evidencia \"antes y después\" por sucursal y reportería ejecutiva con exportación a Power BI, para una red de sucursales multi-empresa." },
+    { tag: "Soporte & SLA", title: "Dashboard de Helpdesk en vivo con SLA", desc: "Dashboard alimentado en vivo desde la API de Odoo Helpdesk: cumplimiento de SLA, tiempo medio de resolución y desempeño por técnico y por sucursal, con exportación a Excel bajo demanda." },
+    { tag: "Business Intelligence", title: "Pipeline Odoo → Power BI (Star Schema)", desc: "API REST propia que transforma datos operativos de Odoo en un modelo Star Schema listo para Power BI, con medidas DAX para reportería ejecutiva en tiempo real." },
+    { tag: "Licenciamiento", title: "Reporte de licenciamiento M365 & Power BI", desc: "Reporte consolidado de licenciamiento para varias empresas de un mismo grupo, con un modelo de datos limpio para auditar asignación y costo por empresa." }
   ];
 
   var caseIcon = '<svg class="case-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z" stroke-linejoin="round"/></svg>';
@@ -899,6 +966,17 @@
     '</article>';
   });
   grid.innerHTML = html;
+
+  // ---------- Render matriz antes / después ----------
+  var matrixBody = document.getElementById("matrixBody");
+  matrixBody.innerHTML = MATRIX.map(function(m){
+    return '<tr>' +
+      '<td class="col-area">' + m.area + '</td>' +
+      '<td class="col-antes">' + m.antes + '</td>' +
+      '<td class="col-despues">' + m.despues + '</td>' +
+      '<td class="col-impacto">' + m.impacto + '</td>' +
+    '</tr>';
+  }).join("");
 
   // ---------- Render casos de éxito ----------
   var casesGrid = document.getElementById("casesGrid");
