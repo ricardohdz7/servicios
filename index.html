@@ -542,7 +542,7 @@
     <div class="wrap">
       <div class="sec-head">
         <span class="eyebrow">Catálogo de servicios</span>
-        <h2>Ocho frentes, un mismo ecosistema</h2>
+        <h2>Diez frentes, un mismo ecosistema</h2>
         <p>Cada servicio se entrega de forma independiente o combinada, sobre la infraestructura que ya usas — sin reescribir tu operación desde cero.</p>
       </div>
 
@@ -756,6 +756,7 @@
     limpieza: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><ellipse cx="12" cy="6" rx="7" ry="2.6"/><path d="M5 6v12c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6V6" /><path d="M5 12c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6" /></svg>',
     correo: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="1.8"/><path d="m3.5 6 8.5 6.5L20.5 6" stroke-linecap="round" stroke-linejoin="round"/></svg>',
     capacitacion: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M2 8.5 12 4l10 4.5-10 4.5-10-4.5Z" stroke-linejoin="round"/><path d="M6 10.7v5c0 1.4 2.7 2.6 6 2.6s6-1.2 6-2.6v-5" /></svg>',
+    contactcenter: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 13v-1a8 8 0 0 1 16 0v1" stroke-linecap="round"/><rect x="3" y="13" width="4" height="6" rx="1.4"/><rect x="17" y="13" width="4" height="6" rx="1.4"/><path d="M19 19c0 1.5-1.8 2.5-5 2.5" stroke-linecap="round"/></svg>',
     webapp: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="4.5" width="18" height="15" rx="1.8"/><path d="M3 8.5h18" stroke-linecap="round"/><circle cx="6.3" cy="6.5" r=".6" fill="currentColor" stroke="none"/><circle cx="8.3" cy="6.5" r=".6" fill="currentColor" stroke="none"/></svg>'
   };
 
@@ -794,12 +795,15 @@
       desc: "Transformación de datos operativos dispersos en tableros ejecutivos interactivos en tiempo real.",
       cardPoints: [
         "Dashboards en Power BI Desktop y Power BI Service",
-        "Pipelines de datos automatizados desde Odoo y SQL",
-        "KPIs de Helpdesk, Mantenimientos, Inventarios y Horas Extra"
+        "Actualización automática de datasets al cargar datos",
+        "Reportes versionados como código (PBIP / TMDL)"
       ],
       modalPoints: [
         "Diseño e implementación de dashboards en Power BI Desktop y Power BI Service",
         "Pipelines de datos desnormalizados y conectores automatizados desde Odoo y bases SQL",
+        "Actualización automática del dataset en Power BI Service vía API al importar nuevos datos",
+        "Dashboards incrustados dentro de tu propio portal, con el acceso de cada usuario de Microsoft 365",
+        "Reportes versionados como código (PBIP / TMDL) con historial de cambios y página de validación de cifras",
         "Exportación de informes ejecutivos automatizados en Excel con formato corporativo",
         "KPIs de rendimiento en Helpdesk, Mantenimientos, Inventarios y Horas Extra"
       ]
@@ -819,6 +823,7 @@
         "Descarga automática de facturas y recibos desde portales web (ej. proveedores, plataformas de suscripción)",
         "Webhooks de integración y crons inteligentes de orquestación",
         "Conexión de plataformas de negocio sin modificar el core del ERP",
+        "Ingesta automática de planificaciones quincenales y alertas de vencimiento por correo",
         "Monitoreo de flujos y alertas ante fallas de ejecución"
       ]
     },
@@ -874,6 +879,25 @@
       ]
     },
     {
+      id: "contactcenter",
+      cat: "bi",
+      icon: ICONS.contactcenter,
+      title: "Analítica de centro de contacto omnicanal",
+      desc: "Métricas de atención en WhatsApp, Messenger, Instagram, Facebook y telefonía (PBX), consolidadas en Power BI.",
+      cardPoints: [
+        "Carga de exportaciones con un clic o programada",
+        "Nivel de servicio, conversión y desempeño por agente",
+        "Cifras conciliadas contra el reporte del proveedor"
+      ],
+      modalPoints: [
+        "Importación y limpieza de exportaciones de la plataforma de tickets, con fusión por ticket sin duplicados",
+        "Descarga y carga automática diaria desde escritorio, sin pasos manuales",
+        "Resumen ejecutivo, llamadas (PBX), embudo de citas y órdenes, y scorecard por agente",
+        "Página de validación mes a mes contra las cifras del proveedor de BI",
+        "Protección de datos personales: los clientes se anonimizan y nunca se guardan nombres ni teléfonos"
+      ]
+    },
+    {
       id: "correo",
       cat: "ia",
       icon: ICONS.correo,
@@ -916,12 +940,14 @@
       cardPoints: [
         "Interfaces en React + TypeScript, modo oscuro y claro",
         "Backend escalable en Node.js / Express",
-        "Instalable como app (PWA) e integrada a Microsoft 365"
+        "App web instalable y app Android con notificaciones push"
       ],
       modalPoints: [
         "Interfaces en React + TypeScript con diseño premium en modo oscuro y claro",
         "Backend escalable en Node.js / Express",
-        "Aplicación instalable (PWA) sin pasar por una tienda de aplicaciones",
+        "Aplicación instalable (PWA) y app Android con actualizaciones en vivo, sin pasar por una tienda de aplicaciones",
+        "Notificaciones push al celular por ticket asignado, SLA por vencer o visita técnica programada",
+        "Control de acceso por módulo (roles Ver / Editar), auditoría de inicios de sesión y desactivación inmediata de cuentas",
         "Integración nativa con Microsoft 365 (Graph API, Outlook, OneDrive) y con Odoo vía API"
       ]
     }
@@ -934,14 +960,18 @@
     { area: "Mantenimientos & visitas técnicas", antes: "Checklists físicos, consolidación manual en Excel días después.", despues: "Formulario web móvil con actualización instantánea y reporte directo a Power BI.", impacto: "Visibilidad en tiempo real, sin reportes diferidos" },
     { area: "Calidad de datos & contactos", antes: "Contactos duplicados, teléfonos y datos fiscales mal formateados.", despues: "Motor de validación automática y fusión inteligente de duplicados.", impacto: "Base de datos limpia, sin perder historial" },
     { area: "Reportes ejecutivos & BI", antes: "Copiar y pegar manual de tablas a Excel, datos desactualizados.", despues: "APIs conectadas directo a Power BI, con datos en tiempo real.", impacto: "Decisiones basadas en datos frescos, no en reportes de días atrás" },
+    { area: "Centro de contacto", antes: "Métricas solo en el reporte del proveedor externo, sin forma de auditarlas.", despues: "Carga de exportaciones con un clic, Power BI actualizado solo y validado mes a mes contra el proveedor.", impacto: "Cifras propias y conciliadas, órdenes idénticas al proveedor" },
+    { area: "Proyectos & tareas", antes: "Seguimiento en hojas de Excel y avisos de avance por chat.", despues: "Kanban, cronograma y matriz por sucursal con KPIs y aviso por correo al completar cada tarea.", impacto: "Avance visible para todos en tiempo real" },
     { area: "Bandeja de entrada (Outlook)", antes: "Correos operativos mezclados, tareas creadas manualmente desde el correo.", despues: "Clasificación automática por carpetas y conversión de correos en tareas.", impacto: "Bandeja organizada sin intervención manual" }
   ];
 
   var CASES = [
     { tag: "Plataforma interna de TI", title: "Plataforma integral de gestión de TI", desc: "Plataforma propia para un departamento de TI: bitácora sincronizada con Outlook, inventario con firma digital, compras con OCR de facturas y soporte con evidencia fotográfica — con bots de Telegram y WhatsApp, integrada a Microsoft 365 y Odoo." },
-    { tag: "Multi-sucursal", title: "Control de visitas técnicas preventivas", desc: "Semáforo de cumplimiento por ciclo de 90 días, checklist operativo, expediente de evidencia \"antes y después\" por sucursal y reportería ejecutiva con exportación a Power BI, para una red de sucursales multi-empresa." },
+    { tag: "Multi-sucursal", title: "Control de visitas técnicas preventivas", desc: "Semáforo de cumplimiento por ciclo de 90 días, checklist operativo, expediente de evidencia \"antes y después\" por sucursal, informe técnico en PDF enviado al completar cada visita y reportería ejecutiva con exportación a Power BI, para una red de sucursales multi-empresa." },
     { tag: "Soporte & SLA", title: "Dashboard de Helpdesk en vivo con SLA", desc: "Dashboard alimentado en vivo desde la API de Odoo Helpdesk: cumplimiento de SLA, tiempo medio de resolución y desempeño por técnico y por sucursal, con exportación a Excel bajo demanda." },
     { tag: "Business Intelligence", title: "Pipeline Odoo → Power BI (Star Schema)", desc: "API REST propia que transforma datos operativos de Odoo en un modelo Star Schema listo para Power BI, con medidas DAX para reportería ejecutiva en tiempo real." },
+    { tag: "Centro de contacto", title: "Analítica omnicanal conciliada con el proveedor", desc: "Más de 50,000 contactos de WhatsApp, redes sociales y PBX consolidados en un reporte de Power BI versionado como código, con actualización automática y una página que cuadra cada mes contra las cifras del proveedor externo." },
+    { tag: "Movilidad", title: "App de campo con push y actualizaciones en vivo", desc: "App Android para técnicos con inicio de sesión corporativo, notificaciones push por ticket o visita asignada y actualizaciones en vivo sin reinstalar desde ninguna tienda." },
     { tag: "Licenciamiento", title: "Reporte de licenciamiento M365 & Power BI", desc: "Reporte consolidado de licenciamiento para varias empresas de un mismo grupo, con un modelo de datos limpio para auditar asignación y costo por empresa." }
   ];
 
